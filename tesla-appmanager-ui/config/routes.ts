@@ -254,6 +254,41 @@ export default [
     ],
   },
   {
+    name: 'app',
+    icon: 'user',
+    path: '/app',
+    routes: [
+      {
+        path: '/app',
+        redirect: '/app/instance',
+      },
+      {
+        name: 'app-instance',
+        icon:'smile',
+        path: '/app/instance',
+        component: './AppManager/AppInstance',
+      },
+      {
+        name: 'app-market',
+        icon:'smile',
+        path: '/app/market',
+        component: './AppManager/Market',
+      },
+      {
+        name: 'app-development',
+        icon:'smile',
+        path: '/app/development',
+        component: './AppManager/Development',
+      },
+      {
+        name: 'app-plugin',
+        icon:'smile',
+        path: '/app/plugin',
+        component: './AppManager/Plugin',
+      },
+    ]
+  },
+  {
     path: '/',
     redirect: '/dashboard/analysis',
   },

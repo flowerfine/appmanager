@@ -14,25 +14,17 @@
         <module>tesla-appmanager-util</module>
         <module>tesla-appmanager-domain</module>
         <module>tesla-appmanager-autoconfig</module>
-        <module>tesla-appmanager-trait</module>
-        <module>tesla-appmanager-definition</module>
-        <module>tesla-appmanager-spring</module>
-        <module>tesla-appmanager-common-service</module>
         <module>tesla-appmanager-auth</module>
         <module>tesla-appmanager-dynamic-script</module>
-        <module>tesla-appmanager-kubernetes</module>
-        <module>tesla-appmanager-meta-helm</module>
-        <module>tesla-appmanager-meta-k8s-microservice</module>
         <module>tesla-appmanager-deploy-config</module>
-        <module>tesla-appmanager-plugin</module>
         <module>tesla-appmanager-server</module>
         <module>tesla-appmanager-start-standalone</module>
-        <module>tesla-appmanager-workflow</module>
         <module>tesla-appmanager-market</module>
-        <module>tesla-appmanager-storage</module>
-        <module>tesla-appmanager-encryption</module>
         <module>plugin-api</module>
         <module>tesla-appmanager-ui</module>
+        <module>appmanager-oam</module>
+        <module>appmanager-support</module>
+        <module>appmanager-plugins</module>
     </modules>
 
     <properties>
