@@ -50,6 +50,43 @@ services:
     networks:
       - appmanager
 
+  sw-paas-appmanager:
+    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/sw-paas-appmanager:v1.5
+    container_name: appmanager
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      APPMANAGER_DB_HOST: "mysql"
+      APPMANAGER_DB_PORT: "3306"
+      APPMANAGER_DB_USER: "root"
+      APPMANAGER_DB_PASSWORD: "123456"
+      APPMANAGER_DB_NAME: "sreworks_appmanager"
+      APPMANAGER_PACKAGE_DRIVER: "minio"
+      APPMANAGER_PACKAGE_ENDPOINT: "minio:9000"
+      APPMANAGER_PACKAGE_ENDPOINT_PROTOCOL: "http://"
+      APPMANAGER_PACKAGE_ACCESS_KEY: "admin"
+      APPMANAGER_PACKAGE_SECRET_KEY: "password"
+      APPMANAGER_PACKAGE_BUCKET_NAME: "sreworks-appmanager"
+      APPMANAGER_DAG_BUCKET_NAME: "sreworks-appmanager-dag"
+      APPMANAGER_REDIS_HOST: "redis"
+      APPMANAGER_REDIS_PORT: "6379"
+      APPMANAGER_REDIS_DATABASE: "2"
+      APPMANAGER_REDIS_PASSWORD: "123456"
+      APPMANAGER_ENV: "daily"
+      APPMANAGER_ROCKETMQ_NAMESRV_ENDPOINT: "sreworks-name-server-service:9876"
+      APPMANAGER_ENABLE_AUTH: false
+      APPMANAGER_ACCESS_ID: "superuser"
+      APPMANAGER_ACCESS_SECRET: "yJfIYmjAiCL0ondV3kY7e5x6kVTpvC3h"
+      APPMANAGER_CLIENT_ID: "superclient"
+      APPMANAGER_CLIENT_SECRET: "stLCjCPKbWmki65DsAj2jPoeBLPimpJa"
+      APPMANAGER_JWT_SECRET_KEY: "3d8e06065426"
+      ABM_CLUSTER: daily
+    ports:
+      - 7004:7001
+    networks:
+      - appmanager
+
   db-migration:
     image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/sw-paas-appmanager-db-migration:v1.5
     container_name: db-migration
