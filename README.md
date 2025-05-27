@@ -18,6 +18,7 @@ AppManager 为 [SREWorks](https://github.com/alibaba/SREWorks) 项目中的 `paa
 
 ### 启动代码
 
+* 新增 `application-local.properties` 文件，配置本地环境。在 `tesla-appmanager-start-standalone` 新增。注意在 `.gitignore` 默认添加了
 * 修改日志文件。修改 `tesla-appmanager-start-standalone` 模块的 `logback-spring-local.xml` 和 `logback-spring.xml` 日志文件。默认使用 `logback-spring.xml`，在 idea 中启动会报错，需调整成 `logback-spring-local.xml` 文件。
   * 在 `application-docker.properties` 中新增配置：`logging.config=classpath:logback-spring-local.xml`
 * 
