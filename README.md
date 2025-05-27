@@ -2,6 +2,26 @@
 
 AppManager 为 [SREWorks](https://github.com/alibaba/SREWorks) 项目中的 `paas/appmanager` 模块。
 
+## 开发文档
+
+### 开发环境
+
+* JDK。11
+* 中间件。在 `tools/docker/local` 目录下执行 `docker compose up -d` 命令即可
+  * mysql。通过 `db-migration` 创建数据库。用户名密码查看 `docker-compose.yaml`
+    * 参考：[paas/migrate](https://github.com/alibaba/SREWorks/tree/main/paas/migrate)
+    * 参考：[Dockerfile_db_migration](https://github.com/alibaba/SREWorks/tree/main/paas/appmanager/Dockerfile_db_migration)
+    * 参考：[entrypoint.sh](https://github.com/alibaba/SREWorks/tree/main/paas/migrate/entrypoint.sh)
+    * 参考：[images.txt](https://github.com/alibaba/SREWorks/blob/master/images.txt)
+  * redis。密码查看 `docker-compose.yaml`
+  * minio。用户名密码查看 `docker-compose.yaml`
+
+### 启动代码
+
+* 修改日志文件。修改 `tesla-appmanager-start-standalone` 模块的 `logback-spring-local.xml` 和 `logback-spring.xml` 日志文件。默认使用 `logback-spring.xml`，在 idea 中启动会报错，需调整成 `logback-spring-local.xml` 文件。
+  * 在 `application-docker.properties` 中新增配置：`logging.config=classpath:logback-spring-local.xml`
+* 
+
 
 ## 参考链接
 

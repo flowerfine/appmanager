@@ -1,0 +1,70 @@
+version: "3.8"
+
+services:
+
+  mysql:
+    image: bitnami/mysql:8.0
+    container_name: mysql
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_AUTHENTICATION_PLUGIN=mysql_native_password
+      - MYSQL_DATABASE=appmanager
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "-u$$MYSQL_ROOT_USER", "-p$$MYSQL_ROOT_PASSWORD",  "ping", "-h", "localhost" ]
+      interval: 3s
+      timeout: 1s
+      retries: 16
+      start_period: 30s
+    volumes:
+      - ../mysql/my_custom.cnf:/opt/bitnami/mysql/conf/my_custom.cnf
+      - ../mysql/init.d:/docker-entrypoint-initdb.d
+    networks:
+      - appmanager
+
+  redis:
+    image: bitnami/redis:7.0.10
+    container_name: redis
+    environment:
+      - REDIS_PORT_NUMBER=6379
+      - REDIS_PASSWORD=123456
+    ports:
+      - 6379:6379
+    networks:
+      - appmanager
+
+  minio:
+    image: bitnami/minio:2025.4.8
+    container_name: minio
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password
+      - MINIO_DEFAULT_BUCKETS=carp:public,scaleph,scaleph-public:public
+      - MINIO_PROMETHEUS_AUTH_TYPE=public # 低版本不起效，升级到最新版本
+    ports:
+      - 9000:9000
+      - 9001:9001
+    networks:
+      - appmanager
+
+  db-migration:
+    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/sw-paas-appmanager-db-migration:v1.5
+    container_name: db-migration
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=123456
+      - DB_NAME=sreworks
+    networks:
+      - appmanager
+
+networks:
+  appmanager:
+    driver: bridge
