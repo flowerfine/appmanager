@@ -20,11 +20,11 @@
         <module>tesla-appmanager-server</module>
         <module>tesla-appmanager-start-standalone</module>
         <module>tesla-appmanager-market</module>
-        <module>plugin-api</module>
         <module>tesla-appmanager-ui</module>
         <module>appmanager-oam</module>
         <module>appmanager-support</module>
         <module>appmanager-plugins</module>
+        <module>appmanager-oam/appmanager-oam-model</module>
     </modules>
 
     <properties>
@@ -76,6 +76,7 @@
         <fabric8.version>5.8.1</fabric8.version>
         <redission.version>3.20.0</redission.version>
         <jjwt.version>0.9.1</jjwt.version>
+        <carp-parent.version>0.0.82</carp-parent.version>
 
         <!--k8s-->
         <k8s.client.version>10.0.0</k8s.client.version>
