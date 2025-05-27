@@ -32,6 +32,7 @@
         <module>tesla-appmanager-storage</module>
         <module>tesla-appmanager-encryption</module>
         <module>plugin-api</module>
+        <module>tesla-appmanager-ui</module>
     </modules>
 
     <properties>
