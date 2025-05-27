@@ -65,6 +65,12 @@ services:
     networks:
       - appmanager
 
+  flycore-paas-frontend-paas-frontend:
+    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/flycore-paas-frontend-paas-frontend:1692362620981
+    container_name: frontend
+    networks:
+      - appmanager
+
 #  sw-paas-appmanager:
 #    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/sw-paas-appmanager:v1.5
 #    container_name: appmanager
