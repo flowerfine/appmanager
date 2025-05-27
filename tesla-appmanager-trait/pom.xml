@@ -3,14 +3,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <groupId>com.alibaba.tesla</groupId>
         <artifactId>tesla-appmanager</artifactId>
+        <groupId>com.alibaba.tesla</groupId>
         <version>1.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-
     <artifactId>tesla-appmanager-trait</artifactId>
     <name>tesla-appmanager-trait</name>
 
@@ -49,12 +47,13 @@
             <artifactId>tesla-webmvc-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.everit.json</groupId>
-            <artifactId>org.everit.json.schema</artifactId>
-        </dependency>
-        <dependency>
             <groupId>io.sreworks</groupId>
             <artifactId>task-flow-service</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.everit.json</groupId>
+            <artifactId>org.everit.json.schema</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -81,6 +80,7 @@
             <groupId>io.fabric8</groupId>
             <artifactId>kubernetes-client</artifactId>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

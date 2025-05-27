@@ -65,9 +65,31 @@ services:
     networks:
       - appmanager
 
+# fixme 没有搞通，太多了，不继续研究了
+#  flycore-paas-gateway-paas-gateway:
+#    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/flycore-paas-gateway-paas-gateway:1692362620981
+#    container_name: paas-gateway
+#    environment:
+#      DB_HOST: paas-gateway:7001
+#      DB_PORT: paas-gateway:7001
+#      DB_PASSWORD: appmanager
+#      REDIS_HOST: appmanager
+#      REDIS_PORT: appmanager
+#      REDIS_DB: appmanager
+#      REDIS_PASSWORD: appmanager
+#    ports:
+#      - 8000:80
+#    networks:
+#      - appmanager
+
   flycore-paas-frontend-paas-frontend:
     image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/flycore-paas-frontend-paas-frontend:1692362620981
     container_name: frontend
+    environment:
+      ENDPOINT_PAAS_GATEWAY: paas-gateway:7001
+      DNS_PAAS_HOME: appmanager
+    ports:
+      - 8089:80
     networks:
       - appmanager
 
