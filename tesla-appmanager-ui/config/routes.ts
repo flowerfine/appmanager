@@ -23,7 +23,8 @@ export default [
         path: '/user/login',
         layout: false,
         name: 'login',
-        component: './user/login',
+        component: './Common/Login',
+        // component: './user/login',
       },
       {
         name: 'register-result',
@@ -156,6 +157,268 @@ export default [
     ],
   },
   {
+    path: '/metadata',
+    name: 'metadata',
+    icon: 'gateway',
+    routes: [
+      {
+        path: '/metadata',
+        redirect: '/metadata/gravitino/metalake'
+      },
+      {
+        name: 'gravitino',
+        path: '/metadata/gravitino',
+        routes: [
+          {
+            name: 'metalake',
+            path: '/metadata/gravitino/metalake',
+            component: './Metadata/Gravitino/Metalake',
+          },
+          {
+            path: '/metadata/gravitino/metalake/catalog',
+            component: './Metadata/Gravitino/Metalake/Catalog',
+          }
+        ]
+      }
+    ]
+  },
+  {
+    path: '/workspace',
+    name: 'workspace',
+    icon: 'profile',
+    routes: [
+      {
+        path: '/workspace',
+        redirect: '/workspace/schedule',
+      },
+      {
+        path: '/workspace/schedule',
+        name: 'schedule',
+        icon: 'profile',
+        routes: [
+          {
+            path: '/workspace/schedule',
+            redirect: '/workspace/schedule/group',
+          },
+          {
+            path: '/workspace/schedule/group',
+            name: 'group',
+            icon: 'profile',
+            component: './Workspace/Schedule/Group'
+          },
+          {
+            path: '/workspace/schedule/config',
+            name: 'config',
+            icon: 'profile',
+            component: './Workspace/Schedule/Config',
+          },
+          {
+            path: '/workspace/schedule/instance',
+            component: './Workspace/Schedule/Instance'
+          },
+        ]
+      },
+      {
+        path: '/workspace/workflow',
+        name: 'workflow',
+        icon: 'profile',
+        routes: [
+          {
+            path: '/workspace/workflow',
+            redirect: '/workspace/workflow/definition',
+          },
+          {
+            path: '/workspace/workflow/definition',
+            name: 'definition',
+            icon: 'profile',
+            component: './Workspace/Workflow/Definition'
+          },
+          {
+            path: '/workspace/workflow/instance',
+            component: './Workspace/Workflow/Instance'
+          },
+        ]
+      },
+      {
+        path: '/workspace/serverless-workflow',
+        name: 'serverless-workflow',
+        icon: 'profile',
+        routes: [
+          {
+            path: '/workspace/serverless-workflow',
+            redirect: '/workspace/serverless-workflow/config',
+          },
+          {
+            path: '/workspace/serverless-workflow/config',
+            name: 'config',
+            icon: 'profile',
+            component: './Workspace/ServerlessWorkflow/Config',
+          },
+          {
+            path: '/workspace/serverless-workflow/config/dag',
+            component: './Workspace/ServerlessWorkflow/Config/Dag',
+          },
+          {
+            path: '/workspace/serverless-workflow/instance',
+            name: 'instance',
+            icon: 'profile',
+            component: './Workspace/ServerlessWorkflow/Instance',
+          },
+          {
+            path: '/workspace/serverless-workflow/instance/detail',
+            component: './Workspace/ServerlessWorkflow/Instance/Detail',
+          }
+        ]
+      },
+      {
+        path: '/workspace/x6',
+        name: 'x6',
+        icon: 'profile',
+        routes: [
+          {
+            path: '/workspace/x6',
+            redirect: '/workspace/x6/chat',
+          },
+          {
+            path: '/workspace/x6/chat',
+            name: 'chat',
+            icon: 'profile',
+            component: './Workspace/X6/chat',
+          },
+          {
+            path: '/workspace/x6/cicd',
+            name: 'cicd',
+            icon: 'profile',
+            component: './Workspace/X6/cicd',
+          },
+          {
+            path: '/workspace/x6/pipeline',
+            name: 'pipeline',
+            icon: 'profile',
+            component: './Workspace/X6/pipeline',
+          },
+          {
+            path: '/workspace/x6/dag',
+            name: 'dag',
+            icon: 'profile',
+            component: './Workspace/X6/dag',
+          },
+          {
+            path: '/workspace/x6/dataProcessingDag',
+            name: 'dataProcessingDag',
+            icon: 'profile',
+            component: './Workspace/X6/dataProcessingDag',
+          },
+          {
+            path: '/workspace/x6/mind',
+            name: 'mind',
+            icon: 'profile',
+            component: './Workspace/X6/mind',
+          },
+          {
+            path: '/workspace/x6/basic',
+            name: 'basic',
+            icon: 'profile',
+            component: './Workspace/X6/basic',
+          },
+          {
+            path: '/workspace/x6/dnd',
+            name: 'dnd',
+            icon: 'profile',
+            component: './Workspace/X6/dnd',
+          },
+          {
+            path: '/workspace/x6/flow',
+            name: 'flow',
+            icon: 'profile',
+            component: './Workspace/X6/flow',
+          },
+          {
+            path: '/workspace/x6/group',
+            name: 'group',
+            icon: 'profile',
+            component: './Workspace/X6/group',
+          },
+          {
+            path: '/workspace/x6/drawing',
+            name: 'drawing',
+            icon: 'profile',
+            component: './Workspace/X6/drawing',
+          }
+        ]
+      },
+      {
+        path: '/workspace/monitor',
+        name: 'monitor',
+        icon: 'profile',
+        routes: [
+          {
+            path: '/workspace/monitor',
+            redirect: '/workspace/monitor/alert',
+          },
+          {
+            path: '/workspace/monitor/alert',
+            name: 'alert',
+            icon: 'profile',
+            routes: [
+              {
+                path: '/workspace/monitor/alert',
+                redirect: '/workspace/monitor/alert/message',
+              },
+              {
+                path: '/workspace/monitor/alert/message',
+                name: 'message',
+                icon: 'profile',
+                component: './Workspace/Monitor/Alert/Message'
+              },
+              {
+                path: '/workspace/monitor/alert/rule',
+                name: 'rule',
+                icon: 'profile',
+                component: './Workspace/Monitor/Alert/Rule'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: 'app',
+    icon: 'user',
+    path: '/app',
+    routes: [
+      {
+        path: '/app',
+        redirect: '/app/instance',
+      },
+      {
+        name: 'app-instance',
+        icon:'smile',
+        path: '/app/instance',
+        component: './AppManager/AppInstance',
+      },
+      {
+        name: 'app-market',
+        icon:'smile',
+        path: '/app/market',
+        component: './AppManager/Market',
+      },
+      {
+        name: 'app-development',
+        icon:'smile',
+        path: '/app/development',
+        component: './AppManager/Development',
+      },
+      {
+        name: 'app-plugin',
+        icon:'smile',
+        path: '/app/plugin',
+        component: './AppManager/Plugin',
+      },
+    ]
+  },
+  {
     path: '/profile',
     name: 'profile',
     icon: 'profile',
@@ -254,39 +517,57 @@ export default [
     ],
   },
   {
-    name: 'app',
-    icon: 'user',
-    path: '/app',
+    name: 'admin',
+    path: '/admin',
+    icon: 'setting',
     routes: [
       {
-        path: '/app',
-        redirect: '/app/instance',
+        path: '/admin',
+        redirect: '/admin/security',
       },
       {
-        name: 'app-instance',
-        icon:'smile',
-        path: '/app/instance',
-        component: './AppManager/AppInstance',
-      },
-      {
-        name: 'app-market',
-        icon:'smile',
-        path: '/app/market',
-        component: './AppManager/Market',
-      },
-      {
-        name: 'app-development',
-        icon:'smile',
-        path: '/app/development',
-        component: './AppManager/Development',
-      },
-      {
-        name: 'app-plugin',
-        icon:'smile',
-        path: '/app/plugin',
-        component: './AppManager/Plugin',
-      },
-    ]
+        name: 'security',
+        path: '/admin/security',
+        icon: 'apartment',
+        routes: [
+          {
+            path: '/admin/security',
+            redirect: '/admin/security/dept',
+          },
+          {
+            name: 'dept',
+            path: '/admin/security/dept',
+            icon: 'apartment',
+            component: './Admin/Security/Dept',
+          },
+          {
+            name: 'user',
+            path: '/admin/security/user',
+            icon: 'user',
+            component: './Admin/Security/User',
+          },
+          {
+            name: 'role',
+            path: '/admin/security/role',
+            icon: 'safety',
+            component: './Admin/Security/Role',
+          },
+          {
+            name: 'resource',
+            path: '/admin/security/resource',
+            icon: 'team',
+            routes: [
+              {
+                name: 'web',
+                path: '/admin/security/resource/web',
+                icon: 'team',
+                component: './Admin/Security/Resource/Web',
+              }
+            ]
+          },
+        ]
+      }
+    ],
   },
   {
     path: '/',
@@ -296,4 +577,5 @@ export default [
     component: '404',
     path: '/*',
   },
+
 ];

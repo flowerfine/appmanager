@@ -15,9 +15,9 @@ export default {
    * @doc https://github.com/chimurai/http-proxy-middleware
    */
   dev: {
-    '/server': {
+    '/api/': {
       target: 'http://localhost:7001',
-      changeOrigin: true
+      changeOrigin: true,
     },
   }
 };

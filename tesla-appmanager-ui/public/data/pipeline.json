@@ -1,0 +1,56 @@
+{
+  "nodes": [
+    {
+      "id": "a1",
+      "shape": "pipeline-node",
+      "x": 0,
+      "y": 0,
+      "ports": [
+        {
+          "id": "a1-out",
+          "group": "out"
+        }
+      ],
+      "data": {
+        "label": "阶段 1: 部署平台 npmregistry@...",
+        "meta": {
+          "type": "pipeline-node"
+        },
+        "attrs": {
+          "title": "npmregistry@DEFAULT ...",
+          "logo": "https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*sko9RoPu-HgAAAAAAAAAAAAADvl6AQ/original",
+          "des": "34秒",
+          "needSwitch": true,
+          "open": true,
+          "children": [
+            {
+              "title": "参数初始化",
+              "logo": "https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*sko9RoPu-HgAAAAAAAAAAAAADvl6AQ/original",
+              "des": "1秒"
+            },
+            {
+              "title": "NPM 组件初始化",
+              "logo": "https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*sko9RoPu-HgAAAAAAAAAAAAADvl6AQ/original",
+              "des": "30秒",
+              "leftHandle": false,
+              "rightHandle": true
+            },
+            {
+              "title": "同步成员（仅子组件生...",
+              "logo": "https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*sko9RoPu-HgAAAAAAAAAAAAADvl6AQ/original",
+              "des": "0秒"
+            },
+            {
+              "title": "注册部署",
+              "logo": "https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*sko9RoPu-HgAAAAAAAAAAAAADvl6AQ/original",
+              "des": "0秒"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "edges": [
+
+  ]
+}

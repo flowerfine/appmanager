@@ -23,7 +23,6 @@ const tabList = [
 ];
 
 const Search: FC<SearchProps> = () => {
-  
   const location = useLocation();
   let match = useMatch(location.pathname);
   const handleTabChange = (key: string) => {
