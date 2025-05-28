@@ -2,7 +2,7 @@ package com.alibaba.tesla.appmanager.server.action.impl.deploy.app;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.oam.AppPackageProvider;
+import com.alibaba.tesla.appmanager.api.provider.build.AppPackageProvider;
 import com.alibaba.tesla.appmanager.common.constants.DeployAppPackageConstant;
 import com.alibaba.tesla.appmanager.common.enums.*;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;

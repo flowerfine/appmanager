@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.server.job;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.ProductReleaseProvider;
+import com.alibaba.tesla.appmanager.api.provider.build.ProductReleaseProvider;
 import com.alibaba.tesla.appmanager.autoconfig.PackageProperties;
 import com.alibaba.tesla.appmanager.autoconfig.SystemProperties;
 import com.alibaba.tesla.appmanager.common.constants.ProductReleaseConstant;

@@ -1,4 +1,4 @@
-package com.alibaba.tesla.appmanager.api.provider.oam;
+package com.alibaba.tesla.appmanager.api.provider.app;
 
 import com.alibaba.tesla.appmanager.domain.dto.AppVersionDTO;
 import com.alibaba.tesla.appmanager.domain.req.appversion.AppVersionCreateReq;

@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.server.controller;
 
-import com.alibaba.tesla.appmanager.api.provider.oam.AppPackageProvider;
+import com.alibaba.tesla.appmanager.api.provider.build.AppPackageProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;
 import com.alibaba.tesla.appmanager.common.util.SchemaUtil;

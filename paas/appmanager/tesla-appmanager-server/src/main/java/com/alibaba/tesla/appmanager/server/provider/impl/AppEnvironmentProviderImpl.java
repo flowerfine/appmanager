@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.server.provider.impl;
 
-import com.alibaba.tesla.appmanager.api.provider.oam.AppEnvironmentProvider;
+import com.alibaba.tesla.appmanager.api.provider.app.AppEnvironmentProvider;
 import com.alibaba.tesla.appmanager.domain.req.appenvironment.AppEnvironmentBindReq;
 import com.alibaba.tesla.appmanager.server.service.appenvironment.AppEnvironmentService;
 import lombok.extern.slf4j.Slf4j;

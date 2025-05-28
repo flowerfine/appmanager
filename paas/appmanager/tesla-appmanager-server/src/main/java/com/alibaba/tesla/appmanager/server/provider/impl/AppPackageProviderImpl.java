@@ -2,7 +2,7 @@ package com.alibaba.tesla.appmanager.server.provider.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.oam.AppPackageProvider;
+import com.alibaba.tesla.appmanager.api.provider.build.AppPackageProvider;
 import com.alibaba.tesla.appmanager.common.constants.CheckNullObject;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;
 import com.alibaba.tesla.appmanager.common.constants.PackAppPackageVariableKey;

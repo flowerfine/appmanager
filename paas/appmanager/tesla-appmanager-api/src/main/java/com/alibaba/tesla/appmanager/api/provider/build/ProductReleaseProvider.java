@@ -1,4 +1,4 @@
-package com.alibaba.tesla.appmanager.api.provider;
+package com.alibaba.tesla.appmanager.api.provider.build;
 
 import com.alibaba.tesla.appmanager.domain.dto.ProductDTO;
 import com.alibaba.tesla.appmanager.domain.dto.ProductReleaseAppRelDTO;

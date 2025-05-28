@@ -1,7 +1,7 @@
 package dynamicscripts
 
 import com.alibaba.fastjson.JSONObject
-import com.alibaba.tesla.appmanager.api.provider.oam.AppMetaProvider
+import com.alibaba.tesla.appmanager.api.provider.app.AppMetaProvider
 import com.alibaba.tesla.appmanager.autoconfig.SystemProperties
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant
 import com.alibaba.tesla.appmanager.common.enums.DeployComponentStateEnum

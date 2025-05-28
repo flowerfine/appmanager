@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.server.provider.impl;
 
-import com.alibaba.tesla.appmanager.api.provider.RtComponentInstanceProvider;
+import com.alibaba.tesla.appmanager.api.provider.app.RtComponentInstanceProvider;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.common.util.ClassUtil;
 import com.alibaba.tesla.appmanager.domain.dto.RtComponentInstanceDTO;

@@ -2,8 +2,8 @@ package com.alibaba.tesla.appmanager.server.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.oam.AddonMetaProvider;
-import com.alibaba.tesla.appmanager.api.provider.oam.AppAddonProvider;
+import com.alibaba.tesla.appmanager.api.provider.addon.AddonMetaProvider;
+import com.alibaba.tesla.appmanager.api.provider.app.AppAddonProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;

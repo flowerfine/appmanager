@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.server.provider.impl;
 
-import com.alibaba.tesla.appmanager.api.provider.RtAppInstanceProvider;
+import com.alibaba.tesla.appmanager.api.provider.app.RtAppInstanceProvider;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;
 import com.alibaba.tesla.appmanager.common.exception.AppException;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;

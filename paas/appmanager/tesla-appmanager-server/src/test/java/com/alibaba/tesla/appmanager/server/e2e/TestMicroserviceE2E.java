@@ -1,7 +1,7 @@
 //package com.alibaba.tesla.appmanager.server.e2e;
 //
 //import com.alibaba.fastjson.JSONObject;
-//import com.alibaba.tesla.appmanager.api.provider.oam.AppPackageTaskProvider;
+//import com.alibaba.tesla.appmanager.api.provider.build.AppPackageTaskProvider;
 //import com.alibaba.tesla.appmanager.api.provider.deploy.DeployAppProvider;
 //import com.alibaba.tesla.appmanager.common.enums.AppPackageTaskStatusEnum;
 //import com.alibaba.tesla.appmanager.common.enums.ComponentTypeEnum;
