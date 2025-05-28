@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.meta.helm.controller;
 
-import com.alibaba.tesla.appmanager.api.provider.HelmMetaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.HelmMetaProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.domain.container.BizAppContainer;
 import com.alibaba.tesla.appmanager.domain.dto.HelmMetaDTO;

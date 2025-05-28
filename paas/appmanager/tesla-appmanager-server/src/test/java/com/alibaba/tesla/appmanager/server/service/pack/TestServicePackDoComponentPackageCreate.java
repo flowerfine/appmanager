@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.server.service.pack;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.ComponentPackageProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.ComponentPackageProvider;
 import com.alibaba.tesla.appmanager.autoconfig.SystemProperties;
 import com.alibaba.tesla.appmanager.common.enums.ComponentTypeEnum;
 import com.alibaba.tesla.appmanager.common.enums.PackageTaskEnum;

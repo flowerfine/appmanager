@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.server.provider.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.UnitProvider;
+import com.alibaba.tesla.appmanager.api.provider.tenant.UnitProvider;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.common.util.ClassUtil;
 import com.alibaba.tesla.appmanager.domain.dto.UnitDTO;

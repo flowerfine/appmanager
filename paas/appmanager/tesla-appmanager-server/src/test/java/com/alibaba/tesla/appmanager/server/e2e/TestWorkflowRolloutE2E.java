@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.server.e2e;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.WorkflowInstanceProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowInstanceProvider;
 import com.alibaba.tesla.appmanager.common.constants.WorkflowContextKeyConstant;
 import com.alibaba.tesla.appmanager.common.enums.WorkflowInstanceStateEnum;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;

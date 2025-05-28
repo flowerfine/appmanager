@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.server.job;
 
-import com.alibaba.tesla.appmanager.api.provider.WorkflowTaskProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowTaskProvider;
 import com.alibaba.tesla.appmanager.common.enums.WorkflowTaskEventEnum;
 import com.alibaba.tesla.appmanager.domain.dto.WorkflowTaskDTO;
 import com.alibaba.tesla.appmanager.workflow.event.WorkflowTaskEvent;

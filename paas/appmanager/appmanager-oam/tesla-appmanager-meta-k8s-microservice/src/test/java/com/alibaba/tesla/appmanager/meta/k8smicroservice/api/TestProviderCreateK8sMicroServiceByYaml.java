@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.meta.k8smicroservice.api;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.K8sMicroServiceMetaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.K8sMicroServiceMetaProvider;
 import com.alibaba.tesla.appmanager.common.service.GitService;
 import com.alibaba.tesla.appmanager.common.util.SchemaUtil;
 import com.alibaba.tesla.appmanager.deployconfig.service.DeployConfigService;

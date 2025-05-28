@@ -2,10 +2,9 @@ package com.alibaba.tesla.appmanager.server.provider.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.AppMetaProvider;
-import com.alibaba.tesla.appmanager.api.provider.AppVersionProvider;
-import com.alibaba.tesla.appmanager.api.provider.DeployAppProvider;
-import com.alibaba.tesla.appmanager.api.provider.DeployConfigProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppMetaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppVersionProvider;
+import com.alibaba.tesla.appmanager.api.provider.deploy.DeployConfigProvider;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;
 import com.alibaba.tesla.appmanager.common.enums.AppOptionUpdateModeEnum;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;

@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.kubernetes;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.ClusterProvider;
+import com.alibaba.tesla.appmanager.api.provider.tenant.ClusterProvider;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;
 import com.alibaba.tesla.appmanager.common.exception.AppException;
 import com.alibaba.tesla.appmanager.common.util.EnvUtil;

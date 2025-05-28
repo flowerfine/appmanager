@@ -1,9 +1,9 @@
 package com.alibaba.tesla.appmanager.workflow.util;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.DeployAppProvider;
-import com.alibaba.tesla.appmanager.api.provider.UnitProvider;
-import com.alibaba.tesla.appmanager.api.provider.WorkflowInstanceProvider;
+import com.alibaba.tesla.appmanager.api.provider.deploy.DeployAppProvider;
+import com.alibaba.tesla.appmanager.api.provider.tenant.UnitProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowInstanceProvider;
 import com.alibaba.tesla.appmanager.common.enums.DynamicScriptKindEnum;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;
 import com.alibaba.tesla.appmanager.common.exception.AppException;

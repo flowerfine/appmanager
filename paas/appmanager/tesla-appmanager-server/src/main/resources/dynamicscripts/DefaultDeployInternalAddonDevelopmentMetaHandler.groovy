@@ -1,7 +1,7 @@
 package dynamicscripts
 
 import com.alibaba.fastjson.JSONObject
-import com.alibaba.tesla.appmanager.api.provider.K8sMicroServiceMetaProvider
+import com.alibaba.tesla.appmanager.api.provider.oam.K8sMicroServiceMetaProvider
 import com.alibaba.tesla.appmanager.autoconfig.SystemProperties
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant
 import com.alibaba.tesla.appmanager.common.enums.ComponentInstanceStatusEnum
@@ -13,7 +13,6 @@ import com.alibaba.tesla.appmanager.common.util.NetworkUtil
 import com.alibaba.tesla.appmanager.common.util.ZipUtil
 import com.alibaba.tesla.appmanager.domain.req.AppAddonCreateReq
 import com.alibaba.tesla.appmanager.domain.req.K8sMicroServiceMetaQueryReq
-import com.alibaba.tesla.appmanager.domain.req.componentinstance.ReportRtComponentInstanceStatusReq
 import com.alibaba.tesla.appmanager.domain.req.deploy.GetDeployComponentHandlerReq
 import com.alibaba.tesla.appmanager.domain.req.deploy.LaunchDeployComponentHandlerReq
 import com.alibaba.tesla.appmanager.domain.res.deploy.GetDeployComponentHandlerRes

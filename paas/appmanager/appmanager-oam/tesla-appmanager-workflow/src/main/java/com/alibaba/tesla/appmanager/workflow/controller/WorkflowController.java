@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.workflow.controller;
 
-import com.alibaba.tesla.appmanager.api.provider.WorkflowInstanceProvider;
-import com.alibaba.tesla.appmanager.api.provider.WorkflowTaskProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowInstanceProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowTaskProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;
 import com.alibaba.tesla.appmanager.common.enums.WorkflowExecuteModeEnum;

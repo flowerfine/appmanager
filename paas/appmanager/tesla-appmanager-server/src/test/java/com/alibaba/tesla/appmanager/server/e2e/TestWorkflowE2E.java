@@ -1,8 +1,8 @@
 package com.alibaba.tesla.appmanager.server.e2e;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.AppPackageTaskProvider;
-import com.alibaba.tesla.appmanager.api.provider.WorkflowInstanceProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppPackageTaskProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowInstanceProvider;
 import com.alibaba.tesla.appmanager.common.enums.AppPackageTaskStatusEnum;
 import com.alibaba.tesla.appmanager.common.enums.ComponentTypeEnum;
 import com.alibaba.tesla.appmanager.common.enums.WorkflowInstanceStateEnum;

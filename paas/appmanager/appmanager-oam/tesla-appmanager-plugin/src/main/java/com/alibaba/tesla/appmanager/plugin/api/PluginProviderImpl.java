@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.plugin.api;
 
-import com.alibaba.tesla.appmanager.api.provider.PluginProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.PluginProvider;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;
 import com.alibaba.tesla.appmanager.common.exception.AppException;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;

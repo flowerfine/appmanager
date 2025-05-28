@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.trait.api;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.TraitProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.TraitProvider;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.common.util.ClassUtil;
 import com.alibaba.tesla.appmanager.common.util.SchemaUtil;

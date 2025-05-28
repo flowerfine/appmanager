@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.definition.controller;
 
-import com.alibaba.tesla.appmanager.api.provider.DefinitionSchemaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.DefinitionSchemaProvider;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.domain.dto.DefinitionSchemaDTO;
 import com.alibaba.tesla.appmanager.domain.req.DefinitionSchemaQueryReq;

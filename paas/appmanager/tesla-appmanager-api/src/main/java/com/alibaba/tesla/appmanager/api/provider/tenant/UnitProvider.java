@@ -1,4 +1,4 @@
-package com.alibaba.tesla.appmanager.api.provider;
+package com.alibaba.tesla.appmanager.api.provider.tenant;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;

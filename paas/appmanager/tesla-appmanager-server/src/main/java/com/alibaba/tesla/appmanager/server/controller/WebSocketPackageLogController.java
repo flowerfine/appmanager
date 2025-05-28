@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.server.controller;
 
-import com.alibaba.tesla.appmanager.api.provider.ComponentPackageProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.ComponentPackageProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.common.constants.RedisKeyConstant;
 import com.alibaba.tesla.appmanager.common.enums.ComponentPackageTaskStateEnum;

@@ -1,7 +1,7 @@
 package dynamicscripts
 
 import com.alibaba.fastjson.JSONObject
-import com.alibaba.tesla.appmanager.api.provider.WorkflowInstanceProvider
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowInstanceProvider
 import com.alibaba.tesla.appmanager.common.constants.RedisKeyConstant
 import com.alibaba.tesla.appmanager.common.constants.WorkflowContextKeyConstant
 import com.alibaba.tesla.appmanager.common.enums.DynamicScriptKindEnum

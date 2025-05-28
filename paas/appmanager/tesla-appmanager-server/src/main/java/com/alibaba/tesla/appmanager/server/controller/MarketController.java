@@ -2,9 +2,9 @@ package com.alibaba.tesla.appmanager.server.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.AppMetaProvider;
-import com.alibaba.tesla.appmanager.api.provider.AppPackageProvider;
-import com.alibaba.tesla.appmanager.api.provider.DeployConfigProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppMetaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppPackageProvider;
+import com.alibaba.tesla.appmanager.api.provider.deploy.DeployConfigProvider;
 import com.alibaba.tesla.appmanager.api.provider.MarketProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;

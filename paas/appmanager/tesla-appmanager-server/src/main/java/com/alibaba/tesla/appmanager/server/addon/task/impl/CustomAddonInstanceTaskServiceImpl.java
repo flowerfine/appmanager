@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.server.addon.task.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.DeployAppProvider;
+import com.alibaba.tesla.appmanager.api.provider.deploy.DeployAppProvider;
 import com.alibaba.tesla.appmanager.common.constants.CheckNullObject;
 import com.alibaba.tesla.appmanager.common.enums.AddonInstanceTaskStatusEnum;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;

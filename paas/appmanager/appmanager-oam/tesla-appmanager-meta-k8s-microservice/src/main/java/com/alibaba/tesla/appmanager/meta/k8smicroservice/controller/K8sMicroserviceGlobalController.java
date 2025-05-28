@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.meta.k8smicroservice.controller;
 
-import com.alibaba.tesla.appmanager.api.provider.K8sMicroServiceMetaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.K8sMicroServiceMetaProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.domain.req.K8sMicroServiceMetaQueryReq;
 import com.alibaba.tesla.common.base.TeslaBaseResult;

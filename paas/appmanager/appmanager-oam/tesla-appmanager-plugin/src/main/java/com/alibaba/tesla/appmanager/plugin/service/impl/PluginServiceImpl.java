@@ -2,8 +2,8 @@ package com.alibaba.tesla.appmanager.plugin.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.DefinitionSchemaProvider;
-import com.alibaba.tesla.appmanager.api.provider.TraitProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.DefinitionSchemaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.TraitProvider;
 import com.alibaba.tesla.appmanager.autoconfig.PackageProperties;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;
 import com.alibaba.tesla.appmanager.common.enums.PluginKindEnum;

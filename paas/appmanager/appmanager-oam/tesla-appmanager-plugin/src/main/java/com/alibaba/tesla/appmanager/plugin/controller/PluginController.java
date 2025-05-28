@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.plugin.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.PluginProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.PluginProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.domain.dto.PluginDefinitionDTO;

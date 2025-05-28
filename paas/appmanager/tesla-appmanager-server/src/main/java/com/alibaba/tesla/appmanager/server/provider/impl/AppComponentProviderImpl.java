@@ -1,7 +1,11 @@
 package com.alibaba.tesla.appmanager.server.provider.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.*;
+import com.alibaba.tesla.appmanager.api.provider.deploy.DeployConfigProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppAddonProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppComponentProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.HelmMetaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.K8sMicroServiceMetaProvider;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;
 import com.alibaba.tesla.appmanager.common.enums.ComponentTypeEnum;
 import com.alibaba.tesla.appmanager.common.enums.PluginKindEnum;

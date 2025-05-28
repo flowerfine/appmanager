@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.server.controller;
 
-import com.alibaba.tesla.appmanager.api.provider.UnitProvider;
+import com.alibaba.tesla.appmanager.api.provider.tenant.UnitProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;

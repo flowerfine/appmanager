@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.trait.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.TraitProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.TraitProvider;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;
 import com.alibaba.tesla.appmanager.domain.dto.TraitDTO;
 import com.alibaba.tesla.appmanager.domain.req.trait.TraitQueryReq;

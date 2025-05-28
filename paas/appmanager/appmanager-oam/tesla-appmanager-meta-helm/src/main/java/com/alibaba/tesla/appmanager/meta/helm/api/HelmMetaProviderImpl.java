@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.meta.helm.api;
 
-import com.alibaba.tesla.appmanager.api.provider.HelmMetaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.HelmMetaProvider;
 import com.alibaba.tesla.appmanager.common.enums.ComponentTypeEnum;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.common.util.ClassUtil;

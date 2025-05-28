@@ -1,16 +1,15 @@
 package com.alibaba.tesla.appmanager.server.controller;
 
-import com.alibaba.tesla.appmanager.api.provider.AppComponentProvider;
-import com.alibaba.tesla.appmanager.api.provider.AppMetaProvider;
-import com.alibaba.tesla.appmanager.api.provider.AppVersionProvider;
-import com.alibaba.tesla.appmanager.api.provider.DeployConfigProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppComponentProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppMetaProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppVersionProvider;
+import com.alibaba.tesla.appmanager.api.provider.deploy.DeployConfigProvider;
 import com.alibaba.tesla.appmanager.auth.controller.AppManagerBaseController;
 import com.alibaba.tesla.appmanager.common.constants.DefaultConstant;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.common.util.SchemaUtil;
 import com.alibaba.tesla.appmanager.domain.container.BizAppContainer;
 import com.alibaba.tesla.appmanager.domain.dto.AppMetaDTO;
-import com.alibaba.tesla.appmanager.domain.dto.DeployConfigDTO;
 import com.alibaba.tesla.appmanager.domain.req.AppMetaCreateReq;
 import com.alibaba.tesla.appmanager.domain.req.AppMetaDeleteReq;
 import com.alibaba.tesla.appmanager.domain.req.AppMetaQueryReq;
@@ -18,7 +17,6 @@ import com.alibaba.tesla.appmanager.domain.req.AppMetaUpdateReq;
 import com.alibaba.tesla.appmanager.domain.req.deployconfig.DeployConfigApplyTemplateReq;
 import com.alibaba.tesla.appmanager.domain.req.deployconfig.DeployConfigDeleteReq;
 import com.alibaba.tesla.appmanager.domain.req.deployconfig.DeployConfigGenerateReq;
-import com.alibaba.tesla.appmanager.domain.req.deployconfig.DeployConfigListReq;
 import com.alibaba.tesla.appmanager.domain.res.appmeta.AppGetVersionRes;
 import com.alibaba.tesla.appmanager.domain.res.apppackage.ApplicationConfigurationGenerateRes;
 import com.alibaba.tesla.appmanager.domain.res.deployconfig.DeployConfigGenerateRes;

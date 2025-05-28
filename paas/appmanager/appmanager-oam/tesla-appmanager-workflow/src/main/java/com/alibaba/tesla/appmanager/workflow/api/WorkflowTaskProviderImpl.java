@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.workflow.api;
 
-import com.alibaba.tesla.appmanager.api.provider.WorkflowTaskProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowTaskProvider;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.domain.dto.WorkflowTaskDTO;
 import com.alibaba.tesla.appmanager.domain.req.workflow.WorkflowTaskListReq;

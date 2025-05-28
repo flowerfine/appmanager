@@ -1,4 +1,4 @@
-package com.alibaba.tesla.appmanager.api.provider;
+package com.alibaba.tesla.appmanager.api.provider.deploy;
 
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.domain.dto.DeployAppAttrDTO;

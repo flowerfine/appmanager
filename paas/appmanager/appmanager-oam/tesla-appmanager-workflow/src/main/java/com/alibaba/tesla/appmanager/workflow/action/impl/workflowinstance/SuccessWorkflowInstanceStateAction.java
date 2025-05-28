@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.workflow.action.impl.workflowinstance;
 
-import com.alibaba.tesla.appmanager.api.provider.WorkflowTaskProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowTaskProvider;
 import com.alibaba.tesla.appmanager.common.enums.WorkflowInstanceStateEnum;
 import com.alibaba.tesla.appmanager.common.enums.WorkflowTaskEventEnum;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;

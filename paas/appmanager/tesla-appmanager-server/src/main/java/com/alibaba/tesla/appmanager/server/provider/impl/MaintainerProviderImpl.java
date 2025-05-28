@@ -1,6 +1,6 @@
 package com.alibaba.tesla.appmanager.server.provider.impl;
 
-import com.alibaba.tesla.appmanager.api.provider.MaintainerProvider;
+import com.alibaba.tesla.appmanager.api.provider.tenant.MaintainerProvider;
 import com.alibaba.tesla.appmanager.server.service.maintainer.MaintainerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

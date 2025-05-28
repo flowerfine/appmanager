@@ -1,8 +1,8 @@
 package com.alibaba.tesla.appmanager.server.provider.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.AppComponentProvider;
-import com.alibaba.tesla.appmanager.api.provider.AppVersionProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppComponentProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.AppVersionProvider;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;
 import com.alibaba.tesla.appmanager.common.exception.AppException;
 import com.alibaba.tesla.appmanager.domain.dto.AppVersionDTO;

@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.workflow.action.impl.workflowtask;
 
-import com.alibaba.tesla.appmanager.api.provider.DeployAppProvider;
-import com.alibaba.tesla.appmanager.api.provider.UnitProvider;
+import com.alibaba.tesla.appmanager.api.provider.deploy.DeployAppProvider;
+import com.alibaba.tesla.appmanager.api.provider.tenant.UnitProvider;
 import com.alibaba.tesla.appmanager.common.enums.WorkflowTaskStateEnum;
 import com.alibaba.tesla.appmanager.domain.req.deploy.DeployAppTerminateReq;
 import com.alibaba.tesla.appmanager.workflow.action.WorkflowTaskStateAction;

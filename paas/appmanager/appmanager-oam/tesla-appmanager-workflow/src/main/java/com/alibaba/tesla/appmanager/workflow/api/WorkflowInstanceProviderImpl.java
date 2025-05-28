@@ -1,7 +1,7 @@
 package com.alibaba.tesla.appmanager.workflow.api;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.tesla.appmanager.api.provider.WorkflowInstanceProvider;
+import com.alibaba.tesla.appmanager.api.provider.oam.WorkflowInstanceProvider;
 import com.alibaba.tesla.appmanager.common.pagination.Pagination;
 import com.alibaba.tesla.appmanager.domain.dto.WorkflowInstanceDTO;
 import com.alibaba.tesla.appmanager.domain.option.WorkflowInstanceOption;

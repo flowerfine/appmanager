@@ -1,4 +1,4 @@
-package com.alibaba.tesla.appmanager.api.provider;
+package com.alibaba.tesla.appmanager.api.provider.tenant;
 
 /**
  * 系统维护 Provider
