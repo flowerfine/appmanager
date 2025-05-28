@@ -1,5 +1,8 @@
 package com.alibaba.tesla.appmanager.dynamicscript.service;
 
+import com.alibaba.tesla.appmanager.common.BaseRequest;
+import com.alibaba.tesla.appmanager.common.pagination.Pagination;
+import com.alibaba.tesla.appmanager.domain.dto.AddonMetaDTO;
 import com.alibaba.tesla.appmanager.dynamicscript.repository.condition.DynamicScriptQueryCondition;
 import com.alibaba.tesla.appmanager.dynamicscript.repository.domain.DynamicScriptDO;
 
@@ -11,6 +14,8 @@ import java.util.List;
  * @author yaoxing.gyx@alibaba-inc.com
  */
 public interface DynamicScriptService {
+
+    Pagination<DynamicScriptDO> list(BaseRequest request);
 
     /**
      * 获取动态脚本内容

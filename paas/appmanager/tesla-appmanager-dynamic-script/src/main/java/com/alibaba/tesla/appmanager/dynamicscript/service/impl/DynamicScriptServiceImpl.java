@@ -1,7 +1,10 @@
 package com.alibaba.tesla.appmanager.dynamicscript.service.impl;
 
+import com.alibaba.tesla.appmanager.common.BaseRequest;
 import com.alibaba.tesla.appmanager.common.exception.AppErrorCode;
 import com.alibaba.tesla.appmanager.common.exception.AppException;
+import com.alibaba.tesla.appmanager.common.pagination.Pagination;
+import com.alibaba.tesla.appmanager.common.util.ClassUtil;
 import com.alibaba.tesla.appmanager.common.util.EnvUtil;
 import com.alibaba.tesla.appmanager.dynamicscript.repository.DynamicScriptHistoryRepository;
 import com.alibaba.tesla.appmanager.dynamicscript.repository.DynamicScriptRepository;
@@ -16,21 +19,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * 动态脚本服务
  *
  * @author yaoxing.gyx@alibaba-inc.com
  */
-@Service
 @Slf4j
+@Service
 public class DynamicScriptServiceImpl implements DynamicScriptService {
 
     @Autowired
     private DynamicScriptRepository dynamicScriptRepository;
-
     @Autowired
     private DynamicScriptHistoryRepository dynamicScriptHistoryRepository;
+
+    @Override
+    public Pagination<DynamicScriptDO> list(BaseRequest request) {
+        DynamicScriptQueryCondition condition = new DynamicScriptQueryCondition();
+        ClassUtil.copy(request, condition);
+        condition.setWithBlobs(true);
+        condition.setEnvId(EnvUtil.currentClusterEnvId());
+        List<DynamicScriptDO> page = dynamicScriptRepository.selectByCondition(condition);
+        return Pagination.valueOf(page, Function.identity());
+    }
 
     /**
      * 获取动态脚本内容

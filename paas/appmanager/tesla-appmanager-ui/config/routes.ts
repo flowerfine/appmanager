@@ -286,6 +286,12 @@ export default [
         path: '/app/plugin',
         component: './AppManager/Plugin',
       },
+      {
+        name: 'dynamic-script',
+        icon:'smile',
+        path: '/app/dynamic-script',
+        component: './AppManager/DynamicScript',
+      },
     ]
   },
   {

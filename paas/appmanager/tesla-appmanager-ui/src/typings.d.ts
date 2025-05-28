@@ -39,3 +39,10 @@ export type PageParam = {
     pagination?: boolean;
     withBlobs?: boolean;
 };
+
+export type ModalProps<T> = {
+    open?: boolean;
+    data?: T;
+    handleOk?: (isOpen: boolean, value?: any) => void;
+    handleCancel?: () => void;
+};

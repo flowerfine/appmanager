@@ -2,11 +2,11 @@ import {PageData, ResponseBody} from '@/typings';
 import {request} from '@umijs/max';
 import { AppManagerAPI } from './typings';
 
-export const PluginService = {
-  url: '/plugins',
+export const DynamicScriptService = {
+  url: '/dynamic-script',
 
-  list: async (queryParam: AppManagerAPI.PluginQueryParam) => {
-    return request<ResponseBody<PageData<AppManagerAPI.Plugin>>>(`${PluginService.url}`, {
+  list: async (queryParam: AppManagerAPI.DynamicScriptQueryParam) => {
+    return request<ResponseBody<PageData<AppManagerAPI.DynamicScript>>>(`${DynamicScriptService.url}`, {
       method: 'GET',
       params: queryParam,
     }).then((res) => {

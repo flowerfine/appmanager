@@ -19,4 +19,19 @@ declare namespace AppManagerAPI {
   type PluginQueryParam = PageParam & {
     pluginKind: string;
   }
+
+  type DynamicScript = {
+    id: number;
+    gmtCreate: Date;
+    gmtModified: Date;
+    kind: string
+    name: string;
+    code: string;
+    currentRevision: number;
+    envId: string;
+  };
+
+  type DynamicScriptQueryParam = PageParam & {
+
+  }
 }

@@ -19,5 +19,9 @@ export default {
       target: 'http://localhost:7001',
       changeOrigin: true
     },
+    '/dynamic-script': {
+      target: 'http://localhost:7001',
+      changeOrigin: true
+    },
   }
 };
