@@ -1,7 +1,6 @@
+import { GithubOutlined } from '@ant-design/icons';
+import { DefaultFooter } from '@ant-design/pro-components';
 import React from 'react';
-import {GithubOutlined} from '@ant-design/icons';
-import {DefaultFooter} from '@ant-design/pro-components';
-import Settings from "../../../config/defaultSettings";
 
 const Footer: React.FC = () => {
   return (
@@ -9,18 +8,24 @@ const Footer: React.FC = () => {
       style={{
         background: 'none',
       }}
-      copyright={"powerd by " + Settings.title}
+      copyright="Powered by Ant Desgin"
       links={[
         {
-          key: 'github',
-          title: <GithubOutlined/>,
-          href: 'https://github.com/flowerfine/scaleph',
+          key: 'Ant Design Pro',
+          title: 'Ant Design Pro',
+          href: 'https://pro.ant.design',
           blankTarget: true,
         },
         {
-          key: 'Scaleph',
-          title: 'Scaleph',
-          href: 'https://flowerfine.github.io/scaleph-repress-site/',
+          key: 'github',
+          title: <GithubOutlined />,
+          href: 'https://github.com/ant-design/ant-design-pro',
+          blankTarget: true,
+        },
+        {
+          key: 'Ant Design',
+          title: 'Ant Design',
+          href: 'https://ant.design',
           blankTarget: true,
         },
       ]}
