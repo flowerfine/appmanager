@@ -15,11 +15,9 @@ export default {
    * @doc https://github.com/chimurai/http-proxy-middleware
    */
   dev: {
-    // localhost:8000/api/** -> https://preview.pro.ant.design/api/**
     '/api': {
       target: 'http://localhost:7001',
-      changeOrigin: true,
-      pathRewrite: { '^': '' },
+      changeOrigin: true
     },
   }
 };
