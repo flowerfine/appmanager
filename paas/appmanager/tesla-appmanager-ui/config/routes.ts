@@ -304,6 +304,12 @@ export default [
         path: '/app/addon',
         component: './AppManager/Addon',
       },
+      {
+        name: 'trait',
+        icon:'smile',
+        path: '/app/trait',
+        component: './AppManager/Trait',
+      },
     ]
   },
   {

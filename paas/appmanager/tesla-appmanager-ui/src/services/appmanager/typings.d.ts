@@ -63,4 +63,19 @@ declare namespace AppManagerAPI {
   type AddonMetaQueryParam = PageParam & {
 
   };
+
+  type Trait = {
+    id: number;
+    gmtCreate: Date;
+    gmtModified: Date;
+    name: string;
+    className: string;
+    label?: string;
+    definitionRef: string;
+    traitDefinition: string;
+  };
+
+  type TraitQueryParam = PageParam & {
+
+  };
 }

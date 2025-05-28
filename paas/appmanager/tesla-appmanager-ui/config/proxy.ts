@@ -31,5 +31,9 @@ export default {
       target: 'http://localhost:7001',
       changeOrigin: true
     },
+    '/traits': {
+      target: 'http://localhost:7001',
+      changeOrigin: true
+    },
   }
 };
