@@ -23,5 +23,13 @@ export default {
       target: 'http://localhost:7001',
       changeOrigin: true
     },
+    '/definition-schemas': {
+      target: 'http://localhost:7001',
+      changeOrigin: true
+    },
+    '/addon': {
+      target: 'http://localhost:7001',
+      changeOrigin: true
+    },
   }
 };

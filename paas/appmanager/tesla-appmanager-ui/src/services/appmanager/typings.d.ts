@@ -18,7 +18,7 @@ declare namespace AppManagerAPI {
 
   type PluginQueryParam = PageParam & {
     pluginKind: string;
-  }
+  };
 
   type DynamicScript = {
     id: number;
@@ -33,5 +33,34 @@ declare namespace AppManagerAPI {
 
   type DynamicScriptQueryParam = PageParam & {
 
-  }
+  };
+
+  type DefinitionSchema = {
+    id: number;
+    gmtCreate: Date;
+    gmtModified: Date;
+    name: string;
+    jsonSchema: string;
+  };
+
+  type DefinitionSchemaQueryParam = PageParam & {
+
+  };
+
+  type AddonMeta = {
+    id: number;
+    gmtCreate: Date;
+    gmtModified: Date;
+    addonType: string;
+    addonId: string;
+    addonVersion: string;
+    addonLabel: string;
+    addonDescription: string;
+    addonSchema: string;
+    componentsSchema: Record<string, any>;
+  };
+
+  type AddonMetaQueryParam = PageParam & {
+
+  };
 }

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 /**
  * Definition Schema DTO
  *
@@ -15,6 +17,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DefinitionSchemaDTO {
+
+    private Long id;
+
+    /**
+     * 创建时间
+     */
+    private Date gmtCreate;
+
+    /**
+     * 最后修改时间
+     */
+    private Date gmtModified;
 
     /**
      * Schema 唯一标识

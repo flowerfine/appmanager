@@ -292,6 +292,18 @@ export default [
         path: '/app/dynamic-script',
         component: './AppManager/DynamicScript',
       },
+      {
+        name: 'definition-schema',
+        icon:'smile',
+        path: '/app/definition-schema',
+        component: './AppManager/DefinitionSchema',
+      },
+      {
+        name: 'addon',
+        icon:'smile',
+        path: '/app/addon',
+        component: './AppManager/Addon',
+      },
     ]
   },
   {
