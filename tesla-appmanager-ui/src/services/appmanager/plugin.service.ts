@@ -1,9 +1,9 @@
-import {PageData, ResponseBody} from '@/typings';
+import {PageData, PageResponse, ResponseBody} from '@/typings';
 import {request} from '@umijs/max';
 import { AppManagerAPI } from './typings';
 
 export const PluginService = {
-  url: '/server/plugins',
+  url: '/plugins',
 
   list: async (queryParam: AppManagerAPI.PluginQueryParam) => {
     return request<ResponseBody<PageData<AppManagerAPI.Plugin>>>(`${PluginService.url}`, {

@@ -1,8 +1,9 @@
 import { PluginService } from "@/services/appmanager/plugin.service";
+import { AppManagerAPI } from "@/services/appmanager/typings";
 import { EditOutlined } from "@ant-design/icons";
 import { ActionType, PageContainer, ProColumns, ProFormInstance, ProTable } from "@ant-design/pro-components";
 import { useIntl } from "@umijs/max";
-import { Alert, Button, Space, Tooltip } from "antd";
+import { Alert, Button, Space, Switch, Tooltip } from "antd";
 import { FC, useRef } from "react";
 
 const ComponentPlugin: FC = () => {
@@ -23,27 +24,12 @@ const ComponentPlugin: FC = () => {
     {
       title: "启用",
       dataIndex: 'pluginRegistered',
-      width: 160,
-    },
-    {
-      title: "操作",
-      dataIndex: 'actions',
-      valueType: 'option',
-      align: 'center',
-      width: 160,
-      fixed: 'right',
+      valueType: 'switch',
       render: (_, record) => (
-        <Space>
-          <Tooltip title={intl.formatMessage({ id: 'app.common.operate.edit.label' })}>
-            <Button
-              shape="default"
-              type="link"
-              icon={<EditOutlined />}
-            />
-          </Tooltip>
-        </Space>
+        <Switch checked={record.pluginRegistered} />
       ),
-    },
+      width: 160,
+    }
   ];
 
   return (
@@ -66,7 +52,7 @@ const ComponentPlugin: FC = () => {
           pluginKind: 'ComponentDefinition',
         }}
         request={(params, sorter, filter) => {
-          const queryParam = {
+          const queryParam: AppManagerAPI.PluginQueryParam = {
             ...params,
             page: params.current,
             pageSize: params.pageSize,
@@ -75,19 +61,6 @@ const ComponentPlugin: FC = () => {
           return PluginService.list(queryParam);
         }}
         options={false}
-        toolbar={{
-          actions: [
-            <Button
-              key="new"
-              type="primary"
-              onClick={() => {
-                
-              }}
-            >
-              上传运维特征
-            </Button>
-          ],
-        }}
       />
     </PageContainer>
   )

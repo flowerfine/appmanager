@@ -1,23 +1,68 @@
-import { PageContainer } from "@ant-design/pro-components";
-import { Alert } from "antd";
-import { FC } from "react";
+import { PluginService } from "@/services/appmanager/plugin.service";
+import { AppManagerAPI } from "@/services/appmanager/typings";
+import { EditOutlined } from "@ant-design/icons";
+import { ActionType, PageContainer, ProColumns, ProFormInstance, ProTable } from "@ant-design/pro-components";
+import { useIntl } from "@umijs/max";
+import { Alert, Button, Space, Switch, Tooltip } from "antd";
+import { FC, useRef } from "react";
 
 const TraitPlugin: FC = () => {
+  const intl = useIntl();
+  const actionRef = useRef<ActionType>();
+  const formRef = useRef<ProFormInstance>();
 
-  
+  const columns: ProColumns<AppManagerAPI.Plugin>[] = [
+    {
+      title: "名称",
+      dataIndex: 'pluginName'
+    },
+    {
+      title: "版本",
+      dataIndex: 'pluginVersion',
+      width: 160,
+    },
+    {
+      title: "启用",
+      dataIndex: 'pluginRegistered',
+      valueType: 'switch',
+      render: (_, record) => (
+        <Switch checked={record.pluginRegistered} />
+      ),
+      width: 160,
+    }
+  ];
 
   return (
     <PageContainer breadcrumbRender={false} title={false} content={
       <Alert message="Trait说明"
-        description="为您的应用程序提供可扩展的运维特性能力"
-        type="warning"
-        showIcon
-        closable
-      />} 
+      description="为您的应用程序提供可扩展的运维特性能力"
+      type="warning"
+      showIcon
+      closable
+      />}
       >
-
-      运维特征插件
-    </PageContainer >
+      <ProTable<AppManagerAPI.Plugin>
+        search={false}
+        rowKey="id"
+        actionRef={actionRef}
+        formRef={formRef}
+        columns={columns}
+        pagination={{ showQuickJumper: true, showSizeChanger: true, defaultPageSize: 10 }}
+        params={{
+          pluginKind: 'TraitDefinition',
+        }}
+        request={(params, sorter, filter) => {
+          const queryParam: AppManagerAPI.PluginQueryParam = {
+            ...params,
+            page: params.current,
+            pageSize: params.pageSize,
+            pagination: true,
+          }
+          return PluginService.list(queryParam);
+        }}
+        options={false}
+      />
+    </PageContainer>
   )
 }
 
