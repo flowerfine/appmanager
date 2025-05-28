@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+
+  sw-paas-appmanager-db-migration:
+    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/sw-paas-appmanager-db-migration:v1.5
+    container_name: sw-paas-appmanager-db-migration
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=123456
+      - DB_NAME=sreworks_appmanager
+    networks:
+      - db-migration
+
+  cluster-clustermanage-db-migration:
+    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/cluster-clustermanage-db-migration:v1.5
+    container_name: cluster-clustermanage-db-migration
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=123456
+      - DB_NAME=sreworks_appmanager
+    networks:
+      - db-migration
+
+  team-team-db-migration:
+    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/team-team-db-migration:v1.5
+    container_name: team-team-db-migration
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=123456
+      - DB_NAME=sreworks_appmanager
+    networks:
+      - db-migration
+
+networks:
+  db-migration:
+    driver: bridge

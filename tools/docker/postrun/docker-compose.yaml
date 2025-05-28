@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+
+  sw-paas-appmanager-postrun:
+    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/sw-paas-appmanager-postrun:v1.5
+    container_name: sw-paas-appmanager-postrun
+    environment:
+      - ENDPOINT_PAAS_APPMANAGER=host.docker.internal:7001
+      - APPMANAGER_CLIENT_ID=superclient
+      - APPMANAGER_CLIENT_SECRET=stLCjCPKbWmki65DsAj2jPoeBLPimpJa
+      - APPMANAGER_ACCESS_ID=superuser
+      - APPMANAGER_ACCESS_SECRET=yJfIYmjAiCL0ondV3kY7e5x6kVTpvC3h
+    networks:
+      - appmanager
+
+networks:
+  appmanager:
+    driver: bridge
