@@ -1,0 +1,5 @@
+endpoint: http://host.docker.internal:7001
+username: superuser
+password: yJfIYmjAiCL0ondV3kY7e5x6kVTpvC3h
+client-id: superclient
+client-secret: stLCjCPKbWmki65DsAj2jPoeBLPimpJa
