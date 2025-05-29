@@ -2,6 +2,27 @@ import {PageParam} from "@/typings";
 
 declare namespace AppManagerAPI {
 
+  type App = {
+    id: number;
+    gmtCreate: Date;
+    gmtModified: Date;
+    appId: string
+    options?: Record<string, any>;
+    environments?: Array<AppDeployEnvironment>;
+  };
+
+  type AppParam = PageParam & {
+    
+  };
+
+  type AppDeployEnvironment = {
+    clusterId: string
+    namespaceId: string
+    stageId: string
+  };
+
+
+
   type Plugin = {
     id: number;
     gmtCreate: Date;

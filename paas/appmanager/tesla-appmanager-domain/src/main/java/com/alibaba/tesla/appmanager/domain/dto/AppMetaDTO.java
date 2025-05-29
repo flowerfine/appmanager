@@ -15,6 +15,8 @@ import java.util.List;
 @Data
 public class AppMetaDTO {
 
+    private Long id;
+
     /**
      * 创建时间
      */

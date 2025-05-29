@@ -260,7 +260,13 @@ export default [
     routes: [
       {
         path: '/app',
-        redirect: '/app/instance',
+        redirect: '/app/app-config',
+      },
+      {
+        name: 'app-config',
+        icon:'smile',
+        path: '/app/app-config',
+        component: './AppManager/App',
       },
       {
         name: 'app-instance',

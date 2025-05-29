@@ -15,6 +15,11 @@ export default {
    * @doc https://github.com/chimurai/http-proxy-middleware
    */
   dev: {
+    '/appmanager': {
+      target: 'http://localhost:7001',
+      changeOrigin: true,
+      pathRewrite: {'^/appmanager' : ''}
+    },
     '/plugins': {
       target: 'http://localhost:7001',
       changeOrigin: true
