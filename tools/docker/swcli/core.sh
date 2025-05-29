@@ -4,7 +4,8 @@
     cat /swcli/swcli.yaml
     cd /root/saas/swcore/api/core/
 
-    export NAMESPACE_ID=$(cat /run/secrets/kubernetes.io/serviceaccount/namespace)
+#    export NAMESPACE_ID=$(cat /run/secrets/kubernetes.io/serviceaccount/namespace)
+    export NAMESPACE_ID='default'
 
     if [[ "$IMAGE_BUILD_ENABLE" == "true" ]] ; then
         # build&launch paas

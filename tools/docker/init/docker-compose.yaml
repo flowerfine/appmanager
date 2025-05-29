@@ -9,6 +9,7 @@ services:
       IMAGE_BUILD_ENABLE: false
       CORE_STAGE_ID: prod
       CORE_APP_ID: flycore
+      IMAGE_REGISTRY: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub
     working_dir: /root
     healthcheck:
       test: [ "CMD", "ls", "/app" ]  # 检查 volume 是否挂载成功
@@ -28,13 +29,48 @@ services:
       done;
       echo '/swcli volume mounted';
       echo 'Volume mounted, starting command...';
-      chmod +x /app/saas-demoapp.sh && /app/saas-demoapp.sh
+      chmod +x /app/core.sh && /app/core.sh
       "
     volumes:
       - ../swcli:/app
       - ../swcli/swcli.yaml:/swcli/swcli.yaml
     networks:
       - app-init
+
+
+#  init-demoapp:
+#    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/swcli-builtin-package:v1.5
+#    container_name: init-demoapp
+#    environment:
+#      IMAGE_BUILD_ENABLE: false
+#      CORE_STAGE_ID: prod
+#      CORE_APP_ID: flycore
+#    working_dir: /root
+#    healthcheck:
+#      test: [ "CMD", "ls", "/app" ]  # 检查 volume 是否挂载成功
+#      interval: 5s
+#      timeout: 10s
+#      retries: 5
+#    command: >
+#      sh -c "
+#      while [ ! -d /app ]; do
+#        echo 'Waiting for /app volume mount...';
+#        sleep 5;
+#      done;
+#      echo '/app volume mounted';
+#      while [ ! -d /swcli ]; do
+#        echo 'Waiting for /swcli volume mount...';
+#        sleep 5;
+#      done;
+#      echo '/swcli volume mounted';
+#      echo 'Volume mounted, starting command...';
+#      chmod +x /app/saas-demoapp.sh && /app/saas-demoapp.sh
+#      "
+#    volumes:
+#      - ../swcli:/app
+#      - ../swcli/swcli.yaml:/swcli/swcli.yaml
+#    networks:
+#      - app-init
 
 networks:
   app-init:
