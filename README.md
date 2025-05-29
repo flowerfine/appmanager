@@ -7,7 +7,7 @@ AppManager 为 [SREWorks](https://github.com/alibaba/SREWorks) 项目中的 `paa
 ### 开发环境
 
 * JDK。11
-* 中间件。在 `tools/docker/local` 目录下执行 `docker compose --profile env up -d` 命令启动数据库
+* 中间件。在 `tools/docker/local` 目录下执行 `docker compose up -d` 命令启动数据库
   * mysql。通过 `db-migration` 创建数据库。用户名密码查看 `docker-compose.yaml`
     * 参考：[paas/migrate](https://github.com/alibaba/SREWorks/tree/main/paas/migrate)
     * 参考：[Dockerfile_db_migration](https://github.com/alibaba/SREWorks/tree/main/paas/appmanager/Dockerfile_db_migration)
@@ -15,6 +15,10 @@ AppManager 为 [SREWorks](https://github.com/alibaba/SREWorks) 项目中的 `paa
     * 参考：[images.txt](https://github.com/alibaba/SREWorks/blob/master/images.txt)
   * redis。密码查看 `docker-compose.yaml`
   * minio。用户名密码查看 `docker-compose.yaml`
+* 初始化数据库。在 `tools/docker/db-migration` 目录下执行 `docker compose up -d` 命令初始化数据库
+* 部署 flycore。启动 appmanager 后，在 `tools/docker/init` 目录下执行 `docker compose up -d` 命令部署 flycore。
+  * appmanager 需开启鉴权
+
 
 ### 启动代码
 
