@@ -1,0 +1,11 @@
+FROM sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/sw-postrun:v1.4 AS release
+
+COPY ./build/config /app
+
+RUN chmod +x /app/start.sh 
+
+WORKDIR /app
+EXPOSE 80
+ENV PYTHONPATH=/app
+ENTRYPOINT ["/app/start.sh"]
+
