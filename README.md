@@ -15,9 +15,7 @@ AppManager 为 [SREWorks](https://github.com/alibaba/SREWorks) 项目中的 `paa
     * 参考：[images.txt](https://github.com/alibaba/SREWorks/blob/master/images.txt)
   * redis。密码查看 `docker-compose.yaml`
   * minio。用户名密码查看 `docker-compose.yaml`
-* 初始化数据库。在 `tools/docker/db-migration` 目录下执行 `docker compose up -d` 命令初始化数据库
-* 部署 flycore。启动 appmanager 后，在 `tools/docker/init` 目录下执行 `docker compose up -d` 命令部署 flycore。
-  * appmanager 需开启鉴权
+* 初始化数据库。在 `tools/docker/local/db-migration` 目录下执行 `docker compose up -d` 命令初始化数据库
 
 
 ### 启动代码
@@ -29,11 +27,12 @@ AppManager 为 [SREWorks](https://github.com/alibaba/SREWorks) 项目中的 `paa
 * 启动类新增环境变量。
   * `ABM_CLUSTER=daily`
 * 启动：`com.alibaba.tesla.appmanager.start.Application`
-* 初始化应用。appmanager 有 2 个初始化操作，`docker compose --profile postrun up -d`
+* 初始化应用。appmanager 有 2 个初始化操作，在 `tools/docker/local/postrun`  目录下执行 `docker compose up -d`
   * 初始化集群。将 appmanager 部署的 kubernetes 作为默认集群更新到 appmanager 中
   * 初始化 definition
+  * 部署 flycore。启动 appmanager 后，在 `tools/docker/local/init` 目录下执行 `docker compose up -d` 命令部署 flycore。
   * 鉴权问题。在启动 appmanager 时，默认是没有开启鉴权的，初始化脚本都以开启鉴权为前提，因此使用 sreworks 官方镜像执行初始化操作，需要先开启 appmanager 鉴权启动，初始化后视需要关闭鉴权重启 appmanager 即可
-
+  
 * 查看 swagger：http://localhost:7001/doc.html
 
 ## SREWorks 介绍

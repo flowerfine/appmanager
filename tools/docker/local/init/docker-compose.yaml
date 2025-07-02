@@ -32,8 +32,8 @@ services:
       chmod +x /app/core.sh && /app/core.sh
       "
     volumes:
-      - ../swcli:/app
-      - ../swcli/swcli.yaml:/swcli/swcli.yaml
+      - ../../swcli:/app
+      - ../../swcli/swcli.yaml:/swcli/swcli.yaml
     networks:
       - app-init
 
