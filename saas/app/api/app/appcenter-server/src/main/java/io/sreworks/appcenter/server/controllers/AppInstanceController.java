@@ -118,6 +118,35 @@ public class AppInstanceController extends BaseController {
         return buildSucceedResult(ret);
     }
 
+    @ApiOperation(value = "listMyProd")
+    @RequestMapping(value = "listMyProd", method = RequestMethod.GET)
+    public TeslaBaseResult listMyProd(String name, String labels) {
+        name = StringUtils.isEmpty(name) ? "" : name;
+        name = "%" + name + "%";
+        List<JSONObject> ret = appInstanceRepository.findObjectByUser(getUserEmployeeId(), name);
+        RegularUtil.underscoreToCamel(ret);
+        RegularUtil.gmt2Date(ret);
+        ret = ret.stream()
+                .filter(x -> Objects.equals("prod", x.getString("stageId")))
+                .collect(Collectors.toList());
+        ret = filterRet(ret, labels);
+        return buildSucceedResult(ret);
+    }
+
+    @ApiOperation(value = "公共列表")
+    @RequestMapping(value = "listPublic", method = RequestMethod.GET)
+    public TeslaBaseResult listPublic(String name) {
+        name = StringUtils.isEmpty(name) ? "" : name;
+        name = "%" + name + "%";
+        List<JSONObject> ret = appInstanceRepository.findPublicObject(name);
+        RegularUtil.underscoreToCamel(ret);
+        RegularUtil.gmt2Date(ret);
+        ret = ret.stream()
+                .filter(x -> Objects.equals("prod", x.getString("stageId")))
+                .collect(Collectors.toList());
+        return buildSucceedResult(ret);
+    }
+
     @ApiOperation(value = "allAppInstances")
     @RequestMapping(value = "allAppInstances", method = RequestMethod.GET)
     public TeslaBaseResult allAppInstances(Long page, Long pageSize) throws Exception {
@@ -187,35 +216,6 @@ public class AppInstanceController extends BaseController {
         return buildSucceedResult(ret);
     }
 
-    @ApiOperation(value = "listMyProd")
-    @RequestMapping(value = "listMyProd", method = RequestMethod.GET)
-    public TeslaBaseResult listMyProd(String name, String labels) {
-        name = StringUtils.isEmpty(name) ? "" : name;
-        name = "%" + name + "%";
-        List<JSONObject> ret = appInstanceRepository.findObjectByUser(getUserEmployeeId(), name);
-        RegularUtil.underscoreToCamel(ret);
-        RegularUtil.gmt2Date(ret);
-        ret = ret.stream()
-            .filter(x -> Objects.equals("prod", x.getString("stageId")))
-            .collect(Collectors.toList());
-        ret = filterRet(ret, labels);
-        return buildSucceedResult(ret);
-    }
-
-    @ApiOperation(value = "公共列表")
-    @RequestMapping(value = "listPublic", method = RequestMethod.GET)
-    public TeslaBaseResult listPublic(String name) {
-        name = StringUtils.isEmpty(name) ? "" : name;
-        name = "%" + name + "%";
-        List<JSONObject> ret = appInstanceRepository.findPublicObject(name);
-        RegularUtil.underscoreToCamel(ret);
-        RegularUtil.gmt2Date(ret);
-        ret = ret.stream()
-            .filter(x -> Objects.equals("prod", x.getString("stageId")))
-            .collect(Collectors.toList());
-        return buildSucceedResult(ret);
-    }
-
     @ApiOperation(value = "get")
     @RequestMapping(value = "get", method = RequestMethod.GET)
     public TeslaBaseResult get(Long id) throws IOException, ApiException {
@@ -246,17 +246,6 @@ public class AppInstanceController extends BaseController {
         AppInstance appInstance = appInstanceRepository.findFirstById(id);
         return buildSucceedResult(YamlUtil.toYaml(appInstance.detail().getResource().toJsonObject()));
     }
-    //
-    //@ApiOperation(value = "updateResource")
-    //@RequestMapping(value = "updateResource", method = RequestMethod.POST)
-    //public TeslaBaseResult updateResource(Long id, @RequestBody AppInstanceUpdateResourceParam param)
-    //    throws IOException, ApiException {
-    //    AppInstance appInstance = appInstanceRepository.findFirstById(id);
-    //    param.patchAppInstance(appInstance, getUserEmployeeId());
-    //    appInstanceRepository.saveAndFlush(appInstance);
-    //    appUpdateService.replaceResourceQuota(appInstance);
-    //    return buildSucceedResult("OK");
-    //}
 
     @ApiOperation(value = "update")
     @RequestMapping(value = "update", method = RequestMethod.POST)

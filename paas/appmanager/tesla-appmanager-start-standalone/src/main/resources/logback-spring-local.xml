@@ -11,6 +11,8 @@
         </encoder>
     </appender>
 
+    <logger name="com.alibaba.tesla.appmanager.server.repository.mapper" level="DEBUG" additivity="false" />
+
     <logger name="com.alibaba.tesla.dag" additivity="false">
         <level value="ERROR" />
         <appender-ref ref="CONSOLE" />
@@ -26,7 +28,7 @@
         <appender-ref ref="CONSOLE" />
     </logger>
 
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>

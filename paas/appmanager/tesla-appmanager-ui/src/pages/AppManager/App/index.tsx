@@ -3,6 +3,7 @@ import { AppManagerAPI } from "@/services/appmanager/typings";
 import { ActionType, PageContainer, ProColumns, ProFormInstance, ProTable, useIntl } from "@ant-design/pro-components"
 import { Button, Modal, Space, Switch } from "antd";
 import { FC, useRef, useState } from "react"
+import AppVersion from "./Version";
 
 type AppSwappState = {
     show: boolean;
@@ -15,6 +16,8 @@ const App: FC = () => {
     const formRef = useRef<ProFormInstance>();
 
     const [showSwapp, setShowSwapp] = useState<AppSwappState>({ show: false });
+
+
 
     const columns: ProColumns<AppManagerAPI.App>[] = [
         {
@@ -94,6 +97,11 @@ const App: FC = () => {
                 actionRef={actionRef}
                 formRef={formRef}
                 columns={columns}
+                expandable={{
+                    expandedRowRender: (record) => {
+                        return <AppVersion appId={record.appId} />
+                    }
+                }}
                 pagination={{ showQuickJumper: true, showSizeChanger: true, defaultPageSize: 10 }}
                 request={(params, sorter, filter) => {
                     const queryParam: AppManagerAPI.AppParam = {
