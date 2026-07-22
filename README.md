@@ -90,17 +90,21 @@ AppManager 为 [SREWorks](https://github.com/alibaba/SREWorks) 项目中的 `paa
 ```shell
 cd sreworks/chart/sreworks-chart
 # 安装SREWorks
-# 替换NODE_IP为某个节点的浏览器可访问IP
+# 替换NODE_IP为某个节点的浏览器可访问IP。如果是本地 minikube，不能使用 localhost，需换成 ip 地址
+# 如果是 k3s 或 minikube 自带 storageClass，k3s: local-path，其他需用 kubectl get storageClass 获取
 # 如果是用 helm 卸载重新安装，会有异常
 helm install sreworks ./ \
     --create-namespace --namespace sreworks \
     --set global.accessMode="nodePort" \
     --set global.images.tag="v1.5" \
-    --set appmanager.home.url="http://43.143.73.169:30767" \
+    --set appmanager.home.url="http://{ip}:30767" \
     --set appmanager.server.jwtSecretKey="1234567" \
-    --set global.storageClass="local-path" \
+    --set global.storageClass="{storageclass}" \ 
     --set saas.onlyBase=true \
     --set localPathProvisioner=false
+
+# 卸载
+helm uninstall sreworks -n sreworks
 ```
 
 ### 源码分析
