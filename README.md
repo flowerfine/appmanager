@@ -17,8 +17,9 @@ AppManager 为 [SREWorks](https://github.com/alibaba/SREWorks) 项目中的 `paa
   * minio。用户名密码查看 `docker-compose.yaml`
 * 初始化数据库。在 `tools/docker/local/db-migration` 目录下执行 `docker compose up -d` 命令初始化数据库
 
-
 ### 启动代码
+
+#### 启动服务端
 
 * 新增 `application-local.properties` 文件，配置本地环境。在 `tesla-appmanager-start-standalone` 新增。注意在 `.gitignore` 默认添加了
   * 修改日志文件。修改 `tesla-appmanager-start-standalone` 模块的 `logback-spring-local.xml` 和 `logback-spring.xml` 日志文件。默认使用 `logback-spring.xml`，在 idea 中启动会报错，需调整成 `logback-spring-local.xml` 文件。
@@ -34,6 +35,16 @@ AppManager 为 [SREWorks](https://github.com/alibaba/SREWorks) 项目中的 `paa
   * 鉴权问题。在启动 appmanager 时，默认是没有开启鉴权的，初始化脚本都以开启鉴权为前提，因此使用 sreworks 官方镜像执行初始化操作，需要先开启 appmanager 鉴权启动，初始化后视需要关闭鉴权重启 appmanager 即可
   
 * 查看 swagger：http://localhost:7001/doc.html
+
+#### 启动前端
+
+本项目未复制 SREWorks 项目的前端部分到本项目中，需 clone SREWorks 项目并 `cd SREWorks/paas/frontend` 执行。
+
+* 前置需求，安装 yarn。`npm install yarn --global`
+* 安装依赖。`yarn install`
+* 构建项目。`yarn build:all`
+* 启动项目。`yarn start`。必须在构建项目之后才可以启动项目
+* 查看web。http://localhost:8080
 
 ## SREWorks 介绍
 
