@@ -45,8 +45,8 @@ services:
       - MINIO_DEFAULT_BUCKETS=sreworks-appmanager:public,sreworks-appmanager-dag:public
       - MINIO_PROMETHEUS_AUTH_TYPE=public # 低版本不起效，升级到最新版本
     ports:
-      - 9000:9000
-      - 9001:9001
+      - 9990:9000
+      - 9991:9001
     networks:
       - appmanager
 
@@ -73,6 +73,29 @@ services:
       sw-paas-appmanager-db-migration:
         condition: service_completed_successfully
     environment:
+      ACCOUNT_SUPER_CLIENT_SECRET: common-9efab2399c7c560b34de477b9aa0a465
+      ACCOUNT_SUPER_CLIENT_ID: common
+      ACCOUNT_SUPER_ID: admin
+      ACCOUNT_SUPER_SECRET_KEY: test-super-secret-key
+      JVM_XMX: 512m
+#      REMOTE_DOCKER_DAEMON: tcp://33.27.16.108:2375
+#      DOCKER_REGISTRY: registry.cn-zhangjiakou.aliyuncs.com
+#      DOCKER_HOST: tcp://127.0.0.1:2375
+#      DOCKER_NAMESPACE: builds
+#      K8S_DOCKER_SECRET: server-docker-secret
+#      ENABLE_KANIKO: true
+#      STORAGE_CLASS: local-path
+#      ENDPOINT_PAAS_APPMANAGER: sreworks-appmanager
+#      NETWORK_PROTOCOL: http
+#      KANIKO_IMAGE: sreworks-registry.cn-beijing.cr.aliyuncs.com/mirror/kaniko-executor:latest
+#      K8S_NAMESPACE: sreworks
+      HOME_URL: http:// 192.168.3.25:30767
+#      COOKIE_DOMAIN: 114.55.171.11
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: 123456
+      DB_NAME: sreworks_appmanager
       APPMANAGER_DB_HOST: "mysql"
       APPMANAGER_DB_PORT: "3306"
       APPMANAGER_DB_USER: "root"
@@ -85,19 +108,23 @@ services:
       APPMANAGER_PACKAGE_SECRET_KEY: "password"
       APPMANAGER_PACKAGE_BUCKET_NAME: "sreworks-appmanager"
       APPMANAGER_DAG_BUCKET_NAME: "sreworks-appmanager-dag"
+      APPMANAGER_DAG_LOCAL_POOL_SIZE: 100
       APPMANAGER_REDIS_HOST: "redis"
       APPMANAGER_REDIS_PORT: "6379"
       APPMANAGER_REDIS_DATABASE: "2"
       APPMANAGER_REDIS_PASSWORD: "123456"
       APPMANAGER_ENV: "daily"
       APPMANAGER_ROCKETMQ_NAMESRV_ENDPOINT: "sreworks-name-server-service:9876"
-      APPMANAGER_ENABLE_AUTH: false
+      APPMANAGER_KAFKA_DEFAULT_BROKER_PORT: 9092
+      APPMANAGER_KAFKA_BROKERS: sreworks-kafka
+      APPMANAGER_ENABLE_AUTH: true
       APPMANAGER_ACCESS_ID: "superuser"
       APPMANAGER_ACCESS_SECRET: "yJfIYmjAiCL0ondV3kY7e5x6kVTpvC3h"
       APPMANAGER_CLIENT_ID: "superclient"
       APPMANAGER_CLIENT_SECRET: "stLCjCPKbWmki65DsAj2jPoeBLPimpJa"
       APPMANAGER_JWT_SECRET_KEY: "3d8e06065426"
-      ABM_CLUSTER: daily
+      ABM_CLUSTER: "DAILY"
+      CLOUD_TYPE: PaaS
     ports:
       - 7004:7001
     networks:
@@ -156,6 +183,24 @@ services:
       - DB_USER=root
       - DB_PASSWORD=123456
       - DB_NAME=abm_paas_authproxy
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+      - REDIS_PASSWORD=123456
+#      - ZOOKEEPER_ENDPOINT=zookeeper
+      - ACCOUNT_SUPER_ACCESS_ID=test-access-id
+      - ACCOUNT_SUPER_ACCESS_KEY=test-access-key
+      - ACCOUNT_SUPER_SECRET_KEY=test-super-secret-key
+      - ACCOUNT_SUPER_CLIENT_SECRET=common-9efab2399c7c560b34de477b9aa0a465
+      - ACCOUNT_SUPER_ID=admin
+      - ACCOUNT_SUPER_PK=999999999
+      - ADMIN_INIT_PASSWORD=12345678
+      - OAUTH2_JWT_SECRET_KEY=1234567
+      - DATABASE_LOGIN_INTERCEPTOR_CLASS_NAME=com.alibaba.tesla.authproxy.interceptor.DataBaseLoginInterceptor
+      - DATABASE_AUTH_SERVICE_MGR_CLASS_NAME=com.alibaba.tesla.authproxy.service.impl.DataBaseAuthServiceManager
+      - DNS_PAAS_HOME=appmanager
+      - URL_PAAS_HOME=http://appmanager:7001
+      - NETWORK_PROTOCOL=http
     networks:
       - appmanager
 
@@ -172,11 +217,25 @@ services:
       - DB_PORT=3306
       - DB_USER=root
       - DB_PASSWORD=123456
-      - DB_NAME=abm_paas_nacos
+      - DB_NAME=abm_paas_authproxy
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-      - REDIS_DB=4
+      - REDIS_DB=0
       - REDIS_PASSWORD=123456
+      #      - ZOOKEEPER_ENDPOINT=zookeeper
+      - ACCOUNT_SUPER_ACCESS_ID=test-access-id
+      - ACCOUNT_SUPER_ACCESS_KEY=test-access-key
+      - ACCOUNT_SUPER_SECRET_KEY=test-super-secret-key
+      - ACCOUNT_SUPER_CLIENT_SECRET=common-9efab2399c7c560b34de477b9aa0a465
+      - ACCOUNT_SUPER_ID=admin
+      - ACCOUNT_SUPER_PK=999999999
+      - ADMIN_INIT_PASSWORD=12345678
+      - OAUTH2_JWT_SECRET_KEY=1234567
+      - DATABASE_LOGIN_INTERCEPTOR_CLASS_NAME=com.alibaba.tesla.authproxy.interceptor.DataBaseLoginInterceptor
+      - DATABASE_AUTH_SERVICE_MGR_CLASS_NAME=com.alibaba.tesla.authproxy.service.impl.DataBaseAuthServiceManager
+      - DNS_PAAS_HOME=appmanager
+      - URL_PAAS_HOME=http://appmanager:7001
+      - NETWORK_PROTOCOL=http
 #    ports:
 #      - 7001:7001
     networks:
@@ -188,29 +247,144 @@ services:
     depends_on:
       flycore-paas-nacos-paas-nacos:
         condition: service_started
+    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://localhost:7002/actuator/health" ]
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:7002/actuator/health" ]
+      interval: 3s
+      timeout: 1s
+      retries: 128
+      start_period: 1m
     environment:
-      REGISTER_NACOS_ENABLED: false
       NACOS_ENDPOINT: flycore-paas-nacos-paas-nacos:8848
-      NACOS_NAMESPACE: TESLA_DUBBO
+      NACOS_NAMESPACE: ad2d92c6-1a21-47ac-9da8-203fcbed9146
+      STORE_NACOS_GROUP: DEFAULT_GROUP
+      STORE_NACOS_DATA_ID: abm-paas-gateway.route.config_default_default
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      REDIS_DB: 3
+      REDIS_DB: 0
       REDIS_PASSWORD: 123456
-      GATEWAY_ENABLE_AUTH: false
+      MANAGER_SERVER_PORT: 7002
+      ENDPOINT_PAAS_AUTHPROXY: http://flycore-paas-authproxy-paas-authproxy:7001
+      AUTH_ADMIN_TOKEN: 1234567
+      AUTH_JWT_SECRET: 1234567
     ports:
       - 7001:7001
     networks:
       - appmanager
+
+  flycore-paas-frontend-authproxy-init:
+    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/flycore-paas-frontend-authproxy-init:1692362620981
+    container_name: flycore-paas-frontend-authproxy-init
+    depends_on:
+      flycore-paas-authproxy-paas-authproxy:
+        condition: service_started
+    restart: on-failure
+    environment:
+      ACCOUNT_SUPER_ID: admin
+      ACCOUNT_SUPER_SECRET_KEY: test-super-secret-key
+      ACCOUNT_SUPER_ACCESS_ID: test-access-id
+      ACCOUNT_SUPER_CLIENT_ID: common
+      ACCOUNT_SUPER_CLIENT_SECRET: common-9efab2399c7c560b34de477b9aa0a465
+      ACCOUNT_SUPER_ACCESS_KEY: test-access-key
+      ACCOUNT_SUPER_PK: 999999999
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: 123456
+      DB_NAME: abm_paas_authproxy
+      DB_NAME_AUTHPROXY: abm_paas_authproxy
+      DNS_PAAS_HOME: appmanager
+      URL_PAAS_HOME: http://appmanager:7001
+      NETWORK_PROTOCOL: http
+      ENDPOINT_PAAS_APPMANAGER: appmanager:7001
+      ENDPOINT_PAAS_AUTHPROXY: flycore-paas-authproxy-paas-authproxy:7001
+      ENDPOINT_PAAS_GATEWAY: http://flycore-paas-gateway-paas-gateway:7001
+      ENDPOINT_PAAS_MINIO: minio:9000
+      ENV_TYPE: Standalone
+      PLATFORM_NAME: SREWorks
+      CORE_STAGE_ID: prod
+      CORE_APP_ID: flycore
+      POSTRUN_WAIT_TIME: 5s
+      K8S_NAMESPACE: sreworks
+      NAMESPACE_DATAOPS: sreworks-dataops
+      LOGIN_URL: fake-login-url
+      PLATFORM_LOGO: /static/icons/sreworks.png
+      DEFAULT_AMDIN_AVATOR: /static/icons/aliyun.png
+    networks:
+      - appmanager
+
+  flycore-paas-frontend-route-config:
+    image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/flycore-paas-frontend-route-config:1692362620981
+    container_name: flycore-paas-frontend-route-config
+    depends_on:
+      flycore-paas-gateway-paas-gateway:
+        condition: service_healthy
+    restart: on-failure
+    environment:
+      ACCOUNT_SUPER_ID: admin
+      ACCOUNT_SUPER_SECRET_KEY: test-super-secret-key
+      ACCOUNT_SUPER_ACCESS_ID: test-access-id
+      ACCOUNT_SUPER_CLIENT_ID: common
+      ACCOUNT_SUPER_CLIENT_SECRET: common-9efab2399c7c560b34de477b9aa0a465
+      ACCOUNT_SUPER_ACCESS_KEY: test-access-key
+      ACCOUNT_SUPER_PK: 999999999
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: 123456
+      DB_NAME: abm_paas_authproxy
+      DB_NAME_AUTHPROXY: abm_paas_authproxy
+      DNS_PAAS_HOME: appmanager
+      URL_PAAS_HOME: http://appmanager:7001
+      NETWORK_PROTOCOL: http
+      ENDPOINT_PAAS_APPMANAGER: appmanager:7001
+      ENDPOINT_PAAS_AUTHPROXY: flycore-paas-authproxy-paas-authproxy:7001
+      ENDPOINT_PAAS_GATEWAY: http://flycore-paas-gateway-paas-gateway:7001
+      ENDPOINT_PAAS_MINIO: minio:9000
+      ENV_TYPE: Standalone
+      PLATFORM_NAME: SREWorks
+      CORE_APP_ID: flycore
+      CORE_STAGE_ID: prod
+      POSTRUN_WAIT_TIME: 5s
+      K8S_NAMESPACE: sreworks
+      NAMESPACE_DATAOPS: sreworks-dataops
+      LOGIN_URL: fake-login-url
+      PLATFORM_LOGO: /static/icons/sreworks.png
+      DEFAULT_AMDIN_AVATOR: /static/icons/aliyun.png
+    volumes:
+      - ./default_route.json.tpl:/app/default_route.json.tpl
+    networks:
+      - appmanager
+
 
   flycore-paas-frontend-paas-frontend:
     image: sreworks-registry.cn-beijing.cr.aliyuncs.com/hub/flycore-paas-frontend-paas-frontend:1692362620981
     container_name: flycore-paas-frontend-paas-frontend
     depends_on:
       flycore-paas-gateway-paas-gateway:
-        condition: service_started
+        condition: service_healthy
+      flycore-paas-frontend-authproxy-init:
+        condition: service_completed_successfully
+      flycore-paas-frontend-route-config:
+        condition: service_completed_successfully
     environment:
-      ENDPOINT_PAAS_GATEWAY: flycore-paas-gateway-paas-gateway:7001
       DNS_PAAS_HOME: appmanager
+      URL_PAAS_HOME: http://appmanager:7001
+      NETWORK_PROTOCOL: http
+      ENDPOINT_PAAS_APPMANAGER: appmanager:7001
+      ENDPOINT_PAAS_AUTHPROXY: flycore-paas-authproxy-paas-authproxy:7001
+      ENDPOINT_PAAS_GATEWAY: flycore-paas-gateway-paas-gateway:7001
+      ENDPOINT_PAAS_MINIO: minio:9000
+      ENV_TYPE: Standalone
+      PLATFORM_NAME: SREWorks
+      CORE_APP_ID: flycore
+      CORE_STAGE_ID: prod
+      POSTRUN_WAIT_TIME: 5s
+      K8S_NAMESPACE: sreworks
+      NAMESPACE_DATAOPS: sreworks-dataops
+      LOGIN_URL: fake-login-url
+      PLATFORM_LOGO: /static/icons/sreworks.png
+      DEFAULT_AMDIN_AVATOR: /static/icons/aliyun.png
     ports:
       - 8089:80
     networks:
